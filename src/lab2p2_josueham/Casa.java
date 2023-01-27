@@ -79,6 +79,11 @@ public class Casa {
     public void setLargo(double largo) {
         this.largo = largo;
     }
+
+    @Override
+    public String toString() {
+        return "Casa{" + "NumCasa=" + NumCasa + ", NumBloque=" + NumBloque + ", NumBans=" + NumBans + ", NumCuartos=" + NumCuartos + ", color=" + color + ", ancho=" + ancho + ", largo=" + largo + '}';
+    }
     
     
 }

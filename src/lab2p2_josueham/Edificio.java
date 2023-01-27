@@ -1,19 +1,37 @@
-
 package lab2p2_josueham;
 
 import java.util.*;
 
 public class Edificio {
-    private int NumPisos, locales;
-    private String direccion;
 
-    public Edificio(int NumPisos, int locales, String direccion) {
+    private int NumPisos, locales;
+    private String direccion, estado, dueno;
+
+    public Edificio(int NumPisos, int locales, String direccion, String estado, String dueno) {
         this.NumPisos = NumPisos;
         this.locales = locales;
         this.direccion = direccion;
+        this.estado = estado;
+        this.dueno = dueno;
+    }
+    
+    public Edificio() {
     }
 
-    public Edificio() {
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getDueno() {
+        return dueno;
+    }
+
+    public void setDueno(String dueno) {
+        this.dueno = dueno;
     }
 
     public int getNumPisos() {
@@ -39,6 +57,11 @@ public class Edificio {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Edificio{" + "NumPisos=" + NumPisos + ", locales=" + locales + ", direccion=" + direccion + ", estado=" + estado + ", dueno=" + dueno + '}';
+    }
+
     
 }
