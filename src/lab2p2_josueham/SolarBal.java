@@ -39,7 +39,7 @@ public class SolarBal {
     }
 
     public void setArea(double area) {
-        this.area = largo*ancho;
+        this.area = area;
     }
 
     public String getDueno() {

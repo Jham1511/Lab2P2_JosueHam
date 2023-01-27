@@ -8,11 +8,12 @@ public class Casa {
     private int NumCasa, NumBloque, NumBans,NumCuartos;
     private Color color;
     private double ancho, largo;
+    private String estado, dueno;
 
     public Casa() {
     }
 
-    public Casa(int NumCasa, int NumBloque, int NumBans, int NumCuartos, Color color, double ancho, double largo) {
+    public Casa(int NumCasa, int NumBloque, int NumBans, int NumCuartos, Color color, double ancho, double largo, String estado, String dueno) {
         this.NumCasa = NumCasa;
         this.NumBloque = NumBloque;
         this.NumBans = NumBans;
@@ -20,7 +21,11 @@ public class Casa {
         this.color = color;
         this.ancho = ancho;
         this.largo = largo;
+        this.estado = estado;
+        this.dueno = dueno;
     }
+
+    
 
     
     
