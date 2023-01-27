@@ -5,12 +5,12 @@ import java.util.*;
 public class Lab2P2_JosueHam {
 
     static Scanner leer = new Scanner(System.in);
-
+    static ArrayList edificios = new ArrayList();
+    static ArrayList<Usuario> usuarios = new ArrayList();
     public static void main(String[] args) {
+        
         int opcion = 0;
-        ArrayList<Usuario> usuarios = new ArrayList();
-        ArrayList edificios = new ArrayList();
-
+        
         do {
             String menu = "----- Bienvenido al menu del programa -----"
                     + "\n1 -> Registro de Inmueble"
@@ -53,12 +53,33 @@ public class Lab2P2_JosueHam {
 
                       switch (resp){
                           case 1: {
+                              System.out.println("Ingrese su nombre: ");
+                              leer.nextLine();
+                              String nombre = leer.next();
                               
+                              System.out.println("Ingrese el nombre de usuario: ");
+                              leer.nextLine();
+                              String usuario = leer.next();
+                              
+                              System.out.println("Ingrese su contraseña: ");
+                              leer.nextLine();
+                              String contra = leer.next();
+                              
+                              System.out.println("Ingrese la edad del usuario: ");
+                              int edad = leer.nextInt();
+                              
+                              usuarios.add(new Usuario(nombre, usuario, contra, edad));
                           }//Fin case 1
                           break;
                           
                           case 2: {
-                              
+                              System.out.println("Ingrese el nombre de usuario: ");
+                              leer.nextLine();
+                              String user = leer.next();
+                              System.out.println("Ingrese el nombre de usuario: ");
+                              leer.nextLine();
+                              String contra = leer.next();
+                              verifUsuario(usuarios, user, contra);
                           }//Fin case 2
                           break;
                           
@@ -76,16 +97,17 @@ public class Lab2P2_JosueHam {
         } while (opcion != 4);
     }//Fin del main 
 
-    public boolean verifUsuario(ArrayList<Usuario> lista, String username, String contra) {
-        boolean esta = false;
+    public static boolean verifUsuario(ArrayList<Usuario> lista, String username, String contra) {
+        boolean encontrado = false;
         for (int i = 0; i < lista.size(); i++) {
             if (contra.equals(lista.get(i).getPassword()) && username.equals(lista.get(i).getUser())) {
-                esta = true;
+                encontrado = true;
+                break;
             } else {
-                esta = false;
+                encontrado = false;
             }
 
         }
-        return esta;
+        return encontrado;
     }//
 }//Fin de la clase
