@@ -10,7 +10,7 @@ public class Lab2P2_JosueHam {
     static ArrayList edificios = new ArrayList();
     static ArrayList<Usuario> usuarios = new ArrayList();
     static Usuario admin = new Usuario("Administrador", "admin", "admin1234", 20);
-    static int x = 0;
+    static int x;
 
     public static void main(String[] args) {
         usuarios.add(admin);
@@ -49,11 +49,12 @@ public class Lab2P2_JosueHam {
                                     System.out.println("1 -> Crear Casas");
                                     System.out.println("2 -> Crear Edificios");
                                     System.out.println("3 -> Crear Solares");
+                                    System.out.println("4 -> Salir");
                                     System.out.println("Ingrese la opcion que desea: ");
                                     int p = leer.nextInt();
 
                                     switch (p) {
-                                        case 1: {
+                                        case 1: { //Agregar
                                             System.out.println("Ingrese el numero de casa: ");
                                             int NumCasa = leer.nextInt();
                                             System.out.println("Ingrese el numero de Bloque: ");
@@ -105,16 +106,106 @@ public class Lab2P2_JosueHam {
                                             System.out.println("Ingrese el largo: ");
                                             double largo = leer.nextInt();
 
-                                            double area = ancho*largo;
-                                            
-                                            edificios.add(new SolarBal(ancho,largo,area,"N/A"));
-                                            
+                                            double area = ancho * largo;
+
+                                            edificios.add(new SolarBal(ancho, largo, area, "N/A"));
+
                                         }//Fin case 3
-                                    }//Fin 
+
+                                        default:
+                                            System.out.println("Regresando al menu principal...");
+                                    }//Fin switch
                                 } else {
                                     System.out.println("Opcion solo disponible para el admin");
                                 }//
-                            }//Fin case 1
+                            }//Fin case 1 de agregar
+                            break;
+
+                            case 2: { //Listar
+                                System.out.println("Submenu para listar inmobiliaria");
+                                System.out.println("1 -> Listar Casas");
+                                System.out.println("2 -> Listar Edificios");
+                                System.out.println("3 -> Listar Solares");
+                                System.out.println("4 -> Salir");
+                                System.out.println("Ingrese la opcion que desea: ");
+                                int p = leer.nextInt();
+
+                                switch (p) {
+                                    case 1: {//Casas
+                                        String cadena = "";
+                                        for (Object o : edificios) {
+                                            if (o instanceof Casa) {
+                                                cadena += edificios.indexOf(o) + "- " + o + "\n";
+                                            }
+                                        }
+                                        System.out.println(cadena);
+                                    }//Fin case 1
+                                    break;
+
+                                    case 2: {
+                                        String cadena = "";
+                                        for (Object o : edificios) {
+                                            if (o instanceof Edificio) {
+                                                cadena += edificios.indexOf(o) + "- " + o + "\n";
+                                            }
+                                        }
+                                        System.out.println(cadena);
+                                    }//Fin case 2
+                                    break;
+
+                                    case 3: {
+                                        String cadena = "";
+                                        for (Object o : edificios) {
+                                            if (o instanceof SolarBal) {
+                                                cadena += edificios.indexOf(o) + "- " + o + "\n";
+                                            }
+                                        }
+                                        System.out.println(cadena);
+                                    }//Fin case 3
+                                    break;
+
+                                    default:
+                                        System.out.println("Regresando...");
+
+                                }//Fin switch
+                            }//Fin case 2 menu de registro
+                            break;
+
+                            case 3: {
+                                if (x == 0) {
+                                    System.out.println("Submenu para listar inmobiliaria");
+                                    System.out.println("1 -> Modificar Casas");
+                                    System.out.println("2 -> Modificar Edificios");
+                                    System.out.println("3 -> Modificar Solares");
+                                    System.out.println("4 -> Salir");
+                                    System.out.println("Ingrese la opcion que desea: ");
+                                    int p = leer.nextInt();
+                                    
+                                    switch(p){
+                                        case 1: {
+                                            
+                                        }//Fin case modif casas
+                                        break;
+                                        
+                                        case 2: {
+                                            
+                                        }//Fin case modif edificios
+                                        break;
+                                        
+                                        case 3: {
+                                            
+                                        }//Fin case modif solares
+                                        break;
+                                        
+                                        default: 
+                                            System.out.println("Regresando...");
+                                    }//Fin switch
+                                    
+                                } else {
+                                    System.out.println("Opcion solo valida para el admin");
+                                }
+
+                            }//Fin case 3 menu de registro
                             break;
                         }//Fin switch
                     } while (op != 6);
@@ -167,8 +258,10 @@ public class Lab2P2_JosueHam {
                                 System.out.println("Ingrese la contraseña: ");
                                 leer.nextLine();
                                 String contra = leer.next();
+
                                 System.out.println("Sesion iniciada correctamente");
 
+                                verifUsuario(usuarios, user, contra);
                             }//Fin case 2
                             break;
 

@@ -87,7 +87,14 @@ public class Casa {
 
     @Override
     public String toString() {
-        return "Casa{" + "NumCasa=" + NumCasa + ", NumBloque=" + NumBloque + ", NumBans=" + NumBans + ", NumCuartos=" + NumCuartos + ", color=" + color + ", ancho=" + ancho + ", largo=" + largo + '}';
+        return "Casa" 
+                + "\nNumCasa: " + NumCasa 
+                + "\nNumBloque: " + NumBloque 
+                + "\nNumBans: " + NumBans 
+                + "\nNumCuartos: " + NumCuartos 
+                + "\nColor: " + color 
+                + "\nAncho: " + ancho 
+                + "\nLargo: " + largo;
     }
     
     

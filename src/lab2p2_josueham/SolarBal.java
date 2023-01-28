@@ -42,6 +42,15 @@ public class SolarBal {
         this.area = area;
     }
 
+    @Override
+    public String toString() {
+        return "SolarBal" 
+                + "\nAncho: " + ancho 
+                + "\nLargo: " + largo 
+                + "\nArea: " + area 
+                + "\nDueño: " + dueno;
+    }
+
     public String getDueno() {
         return dueno;
     }
