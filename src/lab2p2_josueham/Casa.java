@@ -10,6 +10,22 @@ public class Casa {
     private double ancho, largo;
     private String estado, dueno;
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getDueno() {
+        return dueno;
+    }
+
+    public void setDueno(String dueno) {
+        this.dueno = dueno;
+    }
+
     public Casa() {
     }
 
@@ -94,7 +110,9 @@ public class Casa {
                 + "\nNumCuartos: " + NumCuartos 
                 + "\nColor: " + color 
                 + "\nAncho: " + ancho 
-                + "\nLargo: " + largo;
+                + "\nLargo: " + largo
+                + "\nDueño: " + dueno
+                + "\nEstado: " + estado ;
     }
     
     

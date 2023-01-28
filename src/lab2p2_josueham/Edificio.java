@@ -64,8 +64,8 @@ public class Edificio {
                 + "\nNumPisos: " + NumPisos 
                 + "\nLocales: " + locales 
                 + "\nDireccion: " + direccion 
-                + "\nEstado=" + estado 
-                + "\nDueño=" + dueno;
+                + "\nEstado: " + estado 
+                + "\nDueño: " + dueno;
     }
 
     

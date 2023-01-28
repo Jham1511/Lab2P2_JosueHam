@@ -116,7 +116,7 @@ public class Lab2P2_JosueHam {
                                             System.out.println("Regresando al menu principal...");
                                     }//Fin switch
                                 } else {
-                                    System.out.println("Opcion solo disponible para el admin");
+                                    System.out.println("Opcion solo disponible para el administrador");
                                 }//
                             }//Fin case 1 de agregar
                             break;
@@ -131,7 +131,7 @@ public class Lab2P2_JosueHam {
                                 int p = leer.nextInt();
 
                                 switch (p) {
-                                    case 1: {//Casas
+                                    case 1: {
                                         String cadena = "";
                                         for (Object o : edificios) {
                                             if (o instanceof Casa) {
@@ -173,40 +173,198 @@ public class Lab2P2_JosueHam {
 
                             case 3: {
                                 if (x == 0) {
-                                    System.out.println("Submenu para listar inmobiliaria");
+                                    System.out.println("Submenu para borrar inmobiliaria");
                                     System.out.println("1 -> Modificar Casas");
                                     System.out.println("2 -> Modificar Edificios");
                                     System.out.println("3 -> Modificar Solares");
                                     System.out.println("4 -> Salir");
                                     System.out.println("Ingrese la opcion que desea: ");
                                     int p = leer.nextInt();
-                                    
-                                    switch(p){
+
+                                    switch (p) {
                                         case 1: {
-                                            
+
                                         }//Fin case modif casas
                                         break;
-                                        
+
                                         case 2: {
-                                            
+
                                         }//Fin case modif edificios
                                         break;
-                                        
+
                                         case 3: {
-                                            
+
                                         }//Fin case modif solares
                                         break;
-                                        
-                                        default: 
+
+                                        default:
                                             System.out.println("Regresando...");
                                     }//Fin switch
-                                    
+
                                 } else {
-                                    System.out.println("Opcion solo valida para el admin");
+                                    System.out.println("Opcion solo valida para el administrador");
                                 }
 
                             }//Fin case 3 menu de registro
                             break;
+
+                            case 4: { //Borrar
+                                if (x == 0) {
+                                    System.out.println("Submenu para borrar inmobiliaria");
+                                    System.out.println("1 -> Borrar Casas");
+                                    System.out.println("2 -> Borrar Edificios");
+                                    System.out.println("3 -> Borrar Solares");
+                                    System.out.println("4 -> Salir");
+                                    System.out.println("Ingrese la opcion que desea: ");
+                                    int p = leer.nextInt();
+
+                                    switch (p) {
+
+                                        case 1: {
+                                            System.out.println("Ingrese la posicion que desea eliminar: ");
+                                            int pos = leer.nextInt();
+
+                                            if (pos >= 0 && pos <= edificios.size()) {
+                                                if (edificios.get(pos) instanceof Casa) {
+                                                    edificios.remove(pos);
+                                                } else {
+                                                    System.out.println("\nEl edificio en el indice ingresado no es una casa.\n");
+                                                }
+                                            } else {
+                                                System.out.println("\nIndice invalido.\n");
+                                            }
+                                            System.out.println("Casa eliminada exitosamente");
+
+                                        }//Fin case 1 borrar casas
+                                        break;
+
+                                        case 2: {
+                                            System.out.println("Ingrese la posicion que desea eliminar: ");
+                                            int pos = leer.nextInt();
+
+                                            if (pos >= 0 && pos <= edificios.size()) {
+                                                if (edificios.get(pos) instanceof Edificio) {
+                                                    edificios.remove(pos);
+                                                } else {
+                                                    System.out.println("\nEl edificio en el indice ingresado no es valido.\n");
+                                                }
+                                            } else {
+                                                System.out.println("\nIndice invalido.\n");
+                                            }
+                                            System.out.println("Edificio eliminada exitosamente");
+                                        }//Fin case 2 borrar edificios
+                                        break;
+
+                                        case 3: {
+                                            System.out.println("Ingrese la posicion que desea eliminar: ");
+                                            int pos = leer.nextInt();
+
+                                            if (pos >= 0 && pos <= edificios.size()) {
+                                                if (edificios.get(pos) instanceof SolarBal) {
+                                                    edificios.remove(pos);
+                                                } else {
+                                                    System.out.println("\nEl edificio en el indice ingresado no es un Solar Baldio.\n");
+                                                }
+                                            } else {
+                                                System.out.println("\nIndice invalido.\n");
+                                            }
+                                            System.out.println("Solar Baldio eliminada exitosamente");
+                                        }//Fin case 3 borrar solares
+                                        break;
+
+                                        default:
+                                            System.out.println("Regresando al menu anterior...");
+                                    }//Fin del switch 
+                                } else {
+                                    System.out.println("Opcion solo valida para el administrador");
+                                }//Fin else 
+                            }//Fin case 4 menu de registro
+                            break;
+
+                            case 5: { //Comprar
+                                System.out.println("Submenu para comprar inmobiliaria");
+                                System.out.println("1 -> Comprar Casas");
+                                System.out.println("2 -> Comprar Edificios");
+                                System.out.println("3 -> Comprar Solares");
+                                System.out.println("4 -> Salir");
+                                System.out.println("Ingrese la opcion que desea: ");
+                                int p = leer.nextInt();
+
+                                switch (p) {
+                                    case 1: {
+                                        System.out.println("Ingrese la posicion que desea comprar: ");
+                                        int pos = leer.nextInt();
+
+                                        if (pos >= 0 && pos <= edificios.size()) {
+                                            if (edificios.get(pos) instanceof Casa) {
+                                                System.out.println("Ingrese el nuevo dueño: ");
+                                                leer.nextLine();
+                                                String due = leer.next();
+
+                                                ((Casa) edificios.get(pos)).setDueno(due);
+                                                ((Casa) edificios.get(pos)).setEstado("Casa Comprada");
+                                                System.out.println("Compra exitosa");
+                                            } else {
+                                                System.out.println("\nEl edificio en el indice ingresado no es un Solar Baldio.\n");
+                                            }
+                                        } else {
+                                            System.out.println("\nIndice invalido.\n");
+                                        }
+                                    }//Fin case 1 comprar casas
+                                    break;
+
+                                    case 2: {
+                                        System.out.println("Ingrese la posicion que desea comprar: ");
+                                        int pos = leer.nextInt();
+
+                                        if (pos >= 0 && pos <= edificios.size()) {
+                                            if (edificios.get(pos) instanceof Edificio) {
+                                                System.out.println("Ingrese el nuevo dueño: ");
+                                                leer.nextLine();
+                                                String due = leer.next();
+
+                                                ((Edificio) edificios.get(pos)).setDueno(due);
+                                                ((Edificio) edificios.get(pos)).setEstado("Edificio Comprado");
+                                                System.out.println("Compra exitosa");
+
+                                            } else {
+                                                System.out.println("\nEl edificio en el indice ingresado no es un Solar Baldio.\n");
+                                            }
+                                        } else {
+                                            System.out.println("\nIndice invalido.\n");
+                                        }
+                                    }//Fin case 2 comprar edificios
+                                    break;
+
+                                    case 3: {
+                                        System.out.println("Ingrese la posicion que desea comprar: ");
+                                        int pos = leer.nextInt();
+
+                                        if (pos >= 0 && pos <= edificios.size()) {
+                                            if (edificios.get(pos) instanceof SolarBal) {
+                                                System.out.println("Ingrese el nuevo dueño: ");
+                                                leer.nextLine();
+                                                String due = leer.next();
+
+                                                ((SolarBal) edificios.get(pos)).setDueno(due);
+
+                                                System.out.println("Compra exitosa");
+                                            } else {
+                                                System.out.println("\nEl edificio en el indice ingresado no es un Solar Baldio.\n");
+                                            }
+                                        } else {
+                                            System.out.println("\nIndice invalido.\n");
+                                        }
+
+                                    }//Fin case 3 comprar solarbaldio
+                                    break;
+
+                                    default:
+                                        System.out.println("Regresando...");
+                                }//Fin switch de comprar 
+                            }//Fin case 5 menu de registro
+                            break;
+
                         }//Fin switch
                     } while (op != 6);
 
@@ -214,7 +372,64 @@ public class Lab2P2_JosueHam {
                 break;
 
                 case 2: {
+                    System.out.println("Bienvenido al menu para modificar estados");
+                    System.out.println("\n1 -> Modificar Estados Casas"
+                            + "\n2 -> Modificar Estados Edificios (Admin Only)"
+                            + "\n3 -> Salir"
+                            + "\nIngrese que opcion desea: ");
 
+                    int p = leer.nextInt();
+
+                    switch (p) {
+                        case 1: {
+                            System.out.println("Ingrese la posicion que desea modificar el estado: ");
+                            int pos = leer.nextInt();
+
+                            if (pos >= 0 && pos <= edificios.size()) {
+                                if (edificios.get(pos) instanceof Casa) {
+                                    System.out.println("Ingrese el nuevo estado: ");
+                                    System.out.println("Estados: Lista, En Construcción, Construcción en Espera, En Espera de Demolición");
+                                    leer.nextLine();
+                                    String state = leer.next();
+
+                                    ((Casa) edificios.get(pos)).setEstado(state);
+
+                                    System.out.println("Compra exitosa");
+                                } else {
+                                    System.out.println("\nEl edificio en el indice ingresado no es un Solar Baldio.\n");
+                                }
+                            } else {
+                                System.out.println("\nIndice invalido.\n");
+                            }
+                        }//Fin case 1
+                        break;
+
+                        case 2: {
+System.out.println("Ingrese la posicion que desea modificar el estado: ");
+                            int pos = leer.nextInt();
+
+                            if (pos >= 0 && pos <= edificios.size()) {
+                                if (edificios.get(pos) instanceof Casa) {
+                                    System.out.println("Ingrese el nuevo estado: ");
+                                    System.out.println("Estados: Lista, En Construcción, Construcción en Espera, En Espera de Demolición");
+                                    leer.nextLine();
+                                    String state = leer.next();
+
+                                    ((Edificio) edificios.get(pos)).setEstado(state);
+
+                                    System.out.println("Compra exitosa");
+                                } else {
+                                    System.out.println("\nEl edificio en el indice ingresado no es un Solar Baldio.\n");
+                                }
+                            } else {
+                                System.out.println("\nIndice invalido.\n");
+                            }
+                        }//Case 2
+                        break;
+
+                        default:
+                            System.out.println("Regresando...");
+                    }
                 }//Fin case 2
                 break;
 
