@@ -173,7 +173,7 @@ public class Lab2P2_JosueHam {
 
                             case 3: {
                                 if (x == 0) {
-                                    System.out.println("Submenu para borrar inmobiliaria");
+                                    System.out.println("Submenu para modificar inmobiliaria");
                                     System.out.println("1 -> Modificar Casas");
                                     System.out.println("2 -> Modificar Edificios");
                                     System.out.println("3 -> Modificar Solares");
@@ -183,17 +183,185 @@ public class Lab2P2_JosueHam {
 
                                     switch (p) {
                                         case 1: {
+                                            System.out.println("Ingrese la posicion que desea modificar");
+                                            int pos = leer.nextInt();
+
+                                            if (pos >= 0 && pos <= edificios.size()) {
+                                                if (edificios.get(pos) instanceof Casa) {
+
+                                                    System.out.println("Submenu para modificar casas");
+                                                    System.out.println("1 -> Numero de Casa");
+                                                    System.out.println("2 -> Numero de Bloque");
+                                                    System.out.println("3 -> Numero de Baños");
+                                                    System.out.println("4 -> Numero de Cuartos");
+                                                    System.out.println("5 -> Color");
+                                                    System.out.println("6 -> Ancho");
+                                                    System.out.println("7 -> Largo");
+                                                    System.out.println("8 -> Salir");
+                                                    System.out.println("Ingrese la opcion que desea: ");
+                                                    int respuesta = leer.nextInt();
+                                                    switch (respuesta) {
+                                                        case 1: {
+                                                            System.out.println("Ingrese el nuevo numero de casa: ");
+                                                            int casa = leer.nextInt();
+
+                                                            ((Casa) edificios.get(pos)).setNumCasa(casa);
+                                                        }//Fin case 1
+                                                        break;
+
+                                                        case 2: {
+                                                            System.out.println("Ingrese el nuevo numero de bloque: ");
+                                                            int bloque = leer.nextInt();
+
+                                                            ((Casa) edificios.get(pos)).setNumBloque(bloque);
+                                                        }
+                                                        break;
+
+                                                        case 3: {
+                                                            System.out.println("Ingrese el nuevo numero de baños: ");
+                                                            int bans = leer.nextInt();
+
+                                                            ((Casa) edificios.get(pos)).setNumBloque(bans);
+                                                        }//Fin case 3
+                                                        break;
+
+                                                        case 4: {
+                                                            System.out.println("Ingrese el nuevo numero de cuartos: ");
+                                                            int cuartos = leer.nextInt();
+
+                                                            ((Casa) edificios.get(pos)).setNumBloque(cuartos);
+                                                        }//
+                                                        break;
+
+                                                        case 5: {
+                                                            System.out.println("Ingrese el nuevo color: ");
+                                                            Color nue = JColorChooser.showDialog(null, "Seleccione el color nuevo", Color.yellow);
+
+                                                            ((Casa) edificios.get(pos)).setColor(nue);
+                                                        }//
+                                                        break;
+
+                                                        case 6: {
+                                                            System.out.println("Ingrese el nuevo numero de bloque: ");
+                                                            double anch = leer.nextInt();
+
+                                                            ((Casa) edificios.get(pos)).setAncho(anch);
+                                                        }// 
+                                                        break;
+
+                                                        case 7: {
+                                                            System.out.println("Ingrese el nuevo numero de bloque: ");
+                                                            double larg = leer.nextInt();
+
+                                                            ((Casa) edificios.get(pos)).setLargo(larg);
+                                                        }//fin case 7
+
+                                                        default:
+                                                            System.out.println("Regresando...");
+                                                            break;
+                                                    }//Fin switch
+                                                } else {
+                                                    System.out.println("\nEl edificio en el indice ingresado no es valido.\n");
+                                                }
+                                            } else {
+                                                System.out.println("\nIndice invalido.\n");
+                                            }
 
                                         }//Fin case modif casas
                                         break;
 
                                         case 2: {
+                                            System.out.println("Ingrese la posicion que desea modificar");
+                                            int pos = leer.nextInt();
 
+                                            if (pos >= 0 && pos <= edificios.size()) {
+                                                if (edificios.get(pos) instanceof Casa) {
+
+                                                    System.out.println("Submenu para modificar casas");
+                                                    System.out.println("1 -> Numero de Casa");
+                                                    System.out.println("2 -> Numero de Locales");
+                                                    System.out.println("3 -> Direccion");
+                                                    System.out.println("4 -> Salir");
+                                                    System.out.println("Ingrese la opcion que desea: ");
+                                                    int respuesta = leer.nextInt();
+                                                    switch (respuesta) {
+                                                        case 1: {
+                                                            System.out.println("Ingrese el nuevo numero de pisos: ");
+                                                            int pisos = leer.nextInt();
+
+                                                            ((Edificio) edificios.get(pos)).setNumPisos(pisos);
+                                                        }//Fin case 1
+                                                        break;
+
+                                                        case 2: {
+                                                            System.out.println("Ingrese el nuevo numero de pisos: ");
+                                                            int pisos = leer.nextInt();
+
+                                                            ((Edificio) edificios.get(pos)).setNumPisos(pisos);
+                                                        }
+                                                        break;
+
+                                                        case 3: {
+                                                            System.out.println("Ingrese el nuevo numero de baños: ");
+                                                            String direc = leer.next();
+
+                                                            ((Edificio) edificios.get(pos)).setDireccion(direc);
+                                                        }//Fin case 3
+                                                        break;
+
+                                                        default:
+                                                            System.out.println("Regresando...");
+                                                    }//Fin switch
+                                                } else {
+                                                    System.out.println("\nEl edificio en el indice ingresado no es valido.\n");
+                                                }
+                                            } else {
+                                                System.out.println("\nIndice invalido.\n");
+                                            }
                                         }//Fin case modif edificios
                                         break;
 
                                         case 3: {
+                                            System.out.println("Ingrese la posicion que desea modificar");
+                                            int pos = leer.nextInt();
 
+                                            if (pos >= 0 && pos <= edificios.size()) {
+                                                if (edificios.get(pos) instanceof Casa) {
+
+                                                    System.out.println("Submenu para modificar casas");
+                                                    System.out.println("1 -> Ancho");
+                                                    System.out.println("2 -> Largo");
+                                                    System.out.println("3 -> Salir");
+                                                    System.out.println("Ingrese la opcion que desea: ");
+                                                    int respuesta = leer.nextInt();
+                                                    switch (respuesta) {
+                                                        case 1: {
+                                                            System.out.println("Ingrese el nuevo numero de pisos: ");
+                                                            double ancho = leer.nextDouble();
+
+                                                            ((SolarBal) edificios.get(pos)).setAncho(ancho);
+                                                            
+                                                        }//Fin case 1
+                                                        break;
+
+                                                        case 2: {
+                                                            System.out.println("Ingrese el nuevo numero de pisos: ");
+                                                            double largo = leer.nextDouble();
+
+                                                            ((SolarBal) edificios.get(pos)).setLargo(largo);
+                                                        }
+                                                        break;
+                                                        
+
+                                                        default:
+                                                            System.out.println("Regresando...");
+                                                    }//Fin switch
+                                                } else {
+                                                    System.out.println("\nEl edificio en el indice ingresado no es valido.\n");
+                                                }
+                                            } else {
+                                                System.out.println("\nIndice invalido.\n");
+                                            }
                                         }//Fin case modif solares
                                         break;
 
@@ -405,7 +573,7 @@ public class Lab2P2_JosueHam {
                         break;
 
                         case 2: {
-System.out.println("Ingrese la posicion que desea modificar el estado: ");
+                            System.out.println("Ingrese la posicion que desea modificar el estado: ");
                             int pos = leer.nextInt();
 
                             if (pos >= 0 && pos <= edificios.size()) {
