@@ -117,6 +117,7 @@ public class Lab2P2_JosueHam {
                                     }//Fin switch
                                 } else {
                                     System.out.println("Opcion solo disponible para el administrador");
+                                    System.out.println();
                                 }//
                             }//Fin case 1 de agregar
                             break;
@@ -340,7 +341,7 @@ public class Lab2P2_JosueHam {
                                                             double ancho = leer.nextDouble();
 
                                                             ((SolarBal) edificios.get(pos)).setAncho(ancho);
-                                                            
+
                                                         }//Fin case 1
                                                         break;
 
@@ -351,7 +352,6 @@ public class Lab2P2_JosueHam {
                                                             ((SolarBal) edificios.get(pos)).setLargo(largo);
                                                         }
                                                         break;
-                                                        
 
                                                         default:
                                                             System.out.println("Regresando...");
@@ -371,6 +371,7 @@ public class Lab2P2_JosueHam {
 
                                 } else {
                                     System.out.println("Opcion solo valida para el administrador");
+                                    System.out.println("");
                                 }
 
                             }//Fin case 3 menu de registro
@@ -389,6 +390,7 @@ public class Lab2P2_JosueHam {
                                     switch (p) {
 
                                         case 1: {
+                                            System.out.println(listarCasa());
                                             System.out.println("Ingrese la posicion que desea eliminar: ");
                                             int pos = leer.nextInt();
 
@@ -407,6 +409,7 @@ public class Lab2P2_JosueHam {
                                         break;
 
                                         case 2: {
+                                            System.out.println(listarEdif());
                                             System.out.println("Ingrese la posicion que desea eliminar: ");
                                             int pos = leer.nextInt();
 
@@ -424,6 +427,7 @@ public class Lab2P2_JosueHam {
                                         break;
 
                                         case 3: {
+                                            System.out.println(listarSolar());
                                             System.out.println("Ingrese la posicion que desea eliminar: ");
                                             int pos = leer.nextInt();
 
@@ -445,6 +449,7 @@ public class Lab2P2_JosueHam {
                                     }//Fin del switch 
                                 } else {
                                     System.out.println("Opcion solo valida para el administrador");
+                                    System.out.println("");
                                 }//Fin else 
                             }//Fin case 4 menu de registro
                             break;
@@ -460,6 +465,7 @@ public class Lab2P2_JosueHam {
 
                                 switch (p) {
                                     case 1: {
+                                        System.out.println(listarCasa());
                                         System.out.println("Ingrese la posicion que desea comprar: ");
                                         int pos = leer.nextInt();
 
@@ -482,6 +488,7 @@ public class Lab2P2_JosueHam {
                                     break;
 
                                     case 2: {
+                                        System.out.println(listarEdif());
                                         System.out.println("Ingrese la posicion que desea comprar: ");
                                         int pos = leer.nextInt();
 
@@ -505,6 +512,7 @@ public class Lab2P2_JosueHam {
                                     break;
 
                                     case 3: {
+                                        System.out.println(listarSolar());
                                         System.out.println("Ingrese la posicion que desea comprar: ");
                                         int pos = leer.nextInt();
 
@@ -550,6 +558,7 @@ public class Lab2P2_JosueHam {
 
                     switch (p) {
                         case 1: {
+                            System.out.println(listarCasa());
                             System.out.println("Ingrese la posicion que desea modificar el estado: ");
                             int pos = leer.nextInt();
 
@@ -573,11 +582,12 @@ public class Lab2P2_JosueHam {
                         break;
 
                         case 2: {
+                            System.out.println(listarEdif());
                             System.out.println("Ingrese la posicion que desea modificar el estado: ");
                             int pos = leer.nextInt();
 
                             if (pos >= 0 && pos <= edificios.size()) {
-                                if (edificios.get(pos) instanceof Casa) {
+                                if (edificios.get(pos) instanceof Edificio) {
                                     System.out.println("Ingrese el nuevo estado: ");
                                     System.out.println("Estados: Lista, En Construcción, Construcción en Espera, En Espera de Demolición");
                                     leer.nextLine();
@@ -684,4 +694,38 @@ public class Lab2P2_JosueHam {
         return encontrado;
     }//Fin del metodo para validar el log in 
 
+    public static String listarCasa() {
+
+        String cadena = "";
+        for (Object o : edificios) {
+            if (o instanceof Casa) {
+                cadena += edificios.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar casa
+    public static String listarEdif() {
+
+        String cadena = "";
+        for (Object o : edificios) {
+            if (o instanceof Edificio) {
+                cadena += edificios.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar edificio
+    
+    public static String listarSolar() {
+
+        String cadena = "";
+        for (Object o : edificios) {
+            if (o instanceof SolarBal) {
+                cadena += edificios.indexOf(o) + "- " + o + "\n";
+            }
+        }
+        return cadena;
+
+    }//Fin metodo listar SolarBal
 }//Fin de la clase
